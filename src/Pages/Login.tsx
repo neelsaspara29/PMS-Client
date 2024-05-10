@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import { setAuth } from "../store/slice/auth";
+import { setAuth, setUser } from "../store/slice/auth";
 import { useDispatch } from "react-redux";
 
 type TInitialState = {
@@ -32,6 +32,7 @@ const Login = () => {
         if (response?.data?.success) {
           toast.success(response?.data?.message);
           dispatch(setAuth({token :response?.data?.data?.token}));
+          dispatch(setUser({user: response?.data?.data?.user}))
           navigate('/');
         } else {
           toast.error(response?.data?.message);
@@ -43,7 +44,7 @@ const Login = () => {
   };
   return (
     <>
-      <div>
+      <div className="d-flex justify-content-center align-items-center main_container">
         <Formik
           initialValues={initialValue}
           validationSchema={loginSchema}

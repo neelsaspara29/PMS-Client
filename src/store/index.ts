@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import authSlice from './slice/auth'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const store = configureStore({
     reducer: {

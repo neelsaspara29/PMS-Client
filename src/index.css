@@ -8,13 +8,14 @@
 }
 body 
 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
   min-height: 100vh;
   /* background: #000; */
 }
 
+.main_container {
+  min-height: 100vh;
+}
 section .signin
 {
   width: 400px;
@@ -121,4 +122,11 @@ input[type="submit"]:active
 .error_message {
   color: red;
   line-height: 0px;
+}
+
+.text-color {
+    color: #000;
+}
+.error{
+  color: red;
 }

@@ -27,7 +27,7 @@ const Register = () => {
     const navigate = useNavigate();
     
   const handleSubmit = (value: TInitialState) => {
-    const body = {...value, userRole: "admin"};
+    const body = {...value};
     ApiPostNoAuth("/register", body)
       .then((response: any) => {
         console.log(response?.data);
@@ -44,7 +44,7 @@ const Register = () => {
   };
   return (
     <>
-      <div>
+      <div className="d-flex justify-content-center align-items-center main_container">
         <Formik
           initialValues={initialValue}
           validationSchema={loginSchema}
