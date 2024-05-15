@@ -25,7 +25,7 @@ const Login = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-  const handleSubmit = (value: TInitialState) => {
+    const handleSubmit = (value: TInitialState) => {
     ApiPostNoAuth("/login", value)
       .then((response: any) => {
         console.log(response?.data);
@@ -65,7 +65,7 @@ const Login = () => {
                     </p>
 
                     <div className="inputBox">
-                      <Field name="password" /> <i>Password</i>
+                      <Field name="password" type = "password" /> <i>Password</i>
                     </div>
                     <p className="error_message">
                       <ErrorMessage name="password" />
@@ -76,6 +76,10 @@ const Login = () => {
                       <Link to="/register">Signup</Link>
                     </div>
 
+                    <div className="links">
+                      {" "}
+                      <Link to="/patient">Are you Patient?</Link>
+                    </div>
                     <div className="inputBox">
                       <input type="submit" value="Login" />
                     </div>

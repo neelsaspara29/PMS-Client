@@ -42,6 +42,7 @@ const Register = () => {
         console.log(error?.message);
       });
   };
+  
   return (
     <>
       <div className="d-flex justify-content-center align-items-center main_container">
@@ -72,7 +73,7 @@ const Register = () => {
                     </p>
 
                     <div className="inputBox">
-                      <Field name="password" /> <i>Password</i>
+                      <Field name="password" type="password" /> <i>Password</i>
                     </div>
                     <p className="error_message">
                       <ErrorMessage name="password" />

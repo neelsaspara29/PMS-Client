@@ -41,7 +41,7 @@ section .signin .content
 section .signin .content h2 
 {
   font-size: 2em;
-  color: #0f0;
+  color: #0d6efd;
   text-transform: uppercase;
 }
 section .signin .content .form 
@@ -101,13 +101,13 @@ section .signin .content .form .inputBox i
 }
 .signin .content .form .links a:nth-child(2)
 {
-  color: #0f0;
+  color: #0d6efd;
   font-weight: 600;
 }
 .signin .content .form .inputBox input[type="submit"]
 {
   padding: 10px;
-  background: #0f0;
+  background: #0d6efd;
   color: #000;
   font-weight: 600;
   font-size: 1.35em;

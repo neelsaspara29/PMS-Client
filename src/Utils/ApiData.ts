@@ -14,7 +14,7 @@ interface ApiError {
   }
 }
 
-const BASE_URL: string = "http://localhost:5017";
+const BASE_URL: string = "http://ec2-34-207-200-186.compute-1.amazonaws.com";
 
 const getHttpOptions = () => {
   let headers:any = {};

@@ -41,8 +41,8 @@ const PatientDetail = () => {
     const [data, setData] = useState<any>(null);
     const [reports, setReports] = useState<any>([]);
     const [show, setShow] = useState<boolean>(false);
-    const [initialState, setInitialState] = useState(initialValue);
-    const [editId, setEditId] = useState("");
+    const [initialState, setInitialState] = useState<TInitialState>(initialValue);
+    const [editId, setEditId] = useState<string>("");
 
     const getPatientDetail = () => {
         ApiGet(`/patient/get/detail/${id}`).then((response: any) => {

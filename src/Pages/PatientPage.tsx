@@ -5,7 +5,7 @@ import { Accordion, Button } from "react-bootstrap";
 import moementTz from "moment-timezone";
 
 const PatientPage = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState<string>("");
   const [data, setData] = useState<any>(null);
   const [reports, setReports] = useState<any>([]);
 
@@ -41,8 +41,11 @@ const PatientPage = () => {
   };
   return (
     <>
-      <input value={email} onChange={(e) => setEmail(e.target.value)} />
-      <Button onClick={getUserDetail}>submit</Button>
+    <div className="d-flex justify-content-center mt-5">
+
+      <input className="w-25 p-1 rounded" value={email} placeholder="Enter Your Email" onChange={(e) => setEmail(e.target.value)} />
+      <Button className="ms-5" onClick={getUserDetail}>submit</Button>
+    </div>
 {data?.id && 
 <>
 <div className="p-2">

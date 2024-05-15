@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { setLogout } from '../store/slice/auth';
+import { Link } from 'react-router-dom';
 import { ApiGet, ApiPost } from '../Utils/ApiData';
 import toast from 'react-hot-toast';
 import { Button, Modal, Table } from 'react-bootstrap';
@@ -41,11 +39,8 @@ type TInitialState = {
   };
 
 const Home = () => {
-    const navigate = useNavigate();
     const [data, setData] = useState<any>([]);
     const [show, setShow] = useState<boolean>(false);
-    const dispatch = useDispatch();
-
 
     const handleAddPatient = (value: TInitialState) => {
       const body = {
@@ -85,6 +80,7 @@ const Home = () => {
     }, [])
 
     return <>
+    <div className='p-5 border m-5 rounded '>
         <div className='ms-auto mb-2 '>
             <Button className='ms-auto' onClick={() => setShow(true)}>Add Patient</Button>
         </div>
@@ -94,6 +90,7 @@ const Home = () => {
                     <tr>
                             <th>Id</th>
                             <th>Name</th>
+                            <th>Email</th>
                             <th>dob</th>
                             <th></th>
                     </tr>
@@ -103,12 +100,14 @@ const Home = () => {
                         return <tr>
                             <td>{user?.id}</td>
                             <td>{user?.name}</td>
+                            <td>{user?.email}</td>
                             <td>{moment(user?.dob).format("MM/DD/YYYY")}</td>
                             <td><Link to={`/patient/detail/${user?.id}`}><InfoIcon /></Link> </td>
                         </tr>
                     })}
                 </tbody>
             </Table>
+        </div>
         </div>
 
         <Modal show={show} onHide={handleClose}>

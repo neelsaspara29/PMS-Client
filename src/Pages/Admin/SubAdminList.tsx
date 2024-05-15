@@ -59,7 +59,7 @@ const SubAdminList = () => {
     const navigate = useNavigate();
     const [data, setData] = useState<any>([]);
     const [show, setShow] = useState<boolean>(false);
-    const [approvePatientId, setApprovePatientId] = useState("");
+    const [approvePatientId, setApprovePatientId] = useState<any>("");
     const dispatch = useDispatch();
 
 
@@ -170,6 +170,9 @@ const SubAdminList = () => {
     }, [])
 
     return <>
+    <div className='p-5 border m-5 rounded '>
+      
+   
         <div className='ms-auto mb-2 '>
             <Button className='ms-auto' onClick={() => setShow(true)}>Add User</Button>
         </div>
@@ -195,6 +198,7 @@ const SubAdminList = () => {
                     })}
                 </tbody>
             </Table>
+        </div>
         </div>
 
         <Modal show={show} onHide={handleClose}>
