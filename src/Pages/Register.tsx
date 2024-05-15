@@ -23,17 +23,16 @@ const loginSchema = yup.object({
 });
 
 const Register = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-    
   const handleSubmit = (value: TInitialState) => {
-    const body = {...value};
+    const body = { ...value };
     ApiPostNoAuth("/register", body)
       .then((response: any) => {
         console.log(response?.data);
         if (response?.data?.success) {
           toast.success(response?.data?.message);
-            navigate('/login');
+          navigate("/login");
         } else {
           toast.error(response?.data?.message);
         }
@@ -42,7 +41,7 @@ const Register = () => {
         console.log(error?.message);
       });
   };
-  
+
   return (
     <>
       <div className="d-flex justify-content-center align-items-center main_container">

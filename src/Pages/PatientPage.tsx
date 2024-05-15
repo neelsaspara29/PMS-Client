@@ -41,55 +41,63 @@ const PatientPage = () => {
   };
   return (
     <>
-    <div className="d-flex justify-content-center mt-5">
-
-      <input className="w-25 p-1 rounded" value={email} placeholder="Enter Your Email" onChange={(e) => setEmail(e.target.value)} />
-      <Button className="ms-5" onClick={getUserDetail}>submit</Button>
-    </div>
-{data?.id && 
-<>
-<div className="p-2">
-        <div className="d-flex justify-content-between">
-          <h1>Patient Detail</h1>
-        </div>
+      <div className="d-flex justify-content-center mt-5">
+        <input
+          className="w-25 p-1 rounded"
+          value={email}
+          placeholder="Enter Your Email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Button className="ms-5" onClick={getUserDetail}>
+          submit
+        </Button>
       </div>
+      {data?.id && (
+        <>
+          <div className="p-2">
+            <div className="d-flex justify-content-between">
+              <h1>Patient Detail</h1>
+            </div>
+          </div>
 
-      <div>
-        <p>
-          <span>Name : </span> {data?.name}
-        </p>
-        <p>
-          <span>Bob : </span>{" "}
-          {moementTz(data?.dob).tz("PST").format("MM-DD-YYYY")}
-        </p>
-        <p>
-          <span>Email : </span> {data?.email}
-        </p>
-        <p>
-          <span>Mobile Number : </span> {data?.mobile_number}
-        </p>
-        <p>
-          <span>Gender : </span> {data?.gender}
-        </p>
-      </div>
+          <div>
+            <p>
+              <span>Name : </span> {data?.name}
+            </p>
+            <p>
+              <span>Bob : </span>{" "}
+              {moementTz(data?.dob).tz("PST").format("MM-DD-YYYY")}
+            </p>
+            <p>
+              <span>Email : </span> {data?.email}
+            </p>
+            <p>
+              <span>Mobile Number : </span> {data?.mobile_number}
+            </p>
+            <p>
+              <span>Gender : </span> {data?.gender}
+            </p>
+          </div>
 
-      <Accordion>
-        {reports?.map((item: any, index: string) => {
-          return (
-            <Accordion.Item eventKey={index}>
-              <Accordion.Header>
-                {item?.report_type} :{" "}
-                {moementTz(item?.report_date).tz("PST").format("MM-DD-YYYY")}
-              </Accordion.Header>
-              <Accordion.Body>
-                <div>{item?.description}</div>
-              </Accordion.Body>
-            </Accordion.Item>
-          );
-        })}
-      </Accordion></>
-}
-     
+          <Accordion>
+            {reports?.map((item: any, index: string) => {
+              return (
+                <Accordion.Item eventKey={index}>
+                  <Accordion.Header>
+                    {item?.report_type} :{" "}
+                    {moementTz(item?.report_date)
+                      .tz("PST")
+                      .format("MM-DD-YYYY")}
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    <div>{item?.description}</div>
+                  </Accordion.Body>
+                </Accordion.Item>
+              );
+            })}
+          </Accordion>
+        </>
+      )}
     </>
   );
 };

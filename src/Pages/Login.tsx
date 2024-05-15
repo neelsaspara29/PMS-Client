@@ -22,18 +22,17 @@ const loginSchema = yup.object({
 });
 
 const Login = () => {
-
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const handleSubmit = (value: TInitialState) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSubmit = (value: TInitialState) => {
     ApiPostNoAuth("/login", value)
       .then((response: any) => {
         console.log(response?.data);
         if (response?.data?.success) {
           toast.success(response?.data?.message);
-          dispatch(setAuth({token :response?.data?.data?.token}));
-          dispatch(setUser({user: response?.data?.data?.user}))
-          navigate('/');
+          dispatch(setAuth({ token: response?.data?.data?.token }));
+          dispatch(setUser({ user: response?.data?.data?.user }));
+          navigate("/");
         } else {
           toast.error(response?.data?.message);
         }
@@ -65,7 +64,7 @@ const Login = () => {
                     </p>
 
                     <div className="inputBox">
-                      <Field name="password" type = "password" /> <i>Password</i>
+                      <Field name="password" type="password" /> <i>Password</i>
                     </div>
                     <p className="error_message">
                       <ErrorMessage name="password" />
