@@ -54,13 +54,13 @@ const PatientPage = () => {
       </div>
       {data?.id && (
         <>
-          <div className="p-2">
+          <div className="p-2 p-10">
             <div className="d-flex justify-content-between">
               <h1>Patient Detail</h1>
             </div>
           </div>
 
-          <div>
+          <div className="p-10">
             <p>
               <span>Name : </span> {data?.name}
             </p>

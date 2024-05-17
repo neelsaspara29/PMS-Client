@@ -39,11 +39,9 @@ export const ApiPostNoAuth = (
         resolve(response);
       })
       .catch((error: AxiosError) => {
-        if (error.response && error.response.data) {
-          reject(error.response.data);
-        } else {
+       
           reject(error.response?.data);
-        }
+        
       });
   });
 };
@@ -58,12 +56,10 @@ export const ApiPost = (
       .then((response: any) => {
         resolve(response);
       })
-      .catch((error: AxiosError) => {
-        if (error.response && error.response.data) {
+      .catch((error: any) => {
+      
           reject(error.response.data);
-        } else {
-          reject(error.response?.data);
-        }
+       
       });
   });
 };
@@ -71,20 +67,15 @@ export const ApiPost = (
 export const ApiGet = (type: string): Promise<AxiosResponse | ApiError> => {
   return new Promise((resolve, reject) => {
     axios
-      .get(BASE_URL + type, {
-        headers: { "Content-Type": "application/json", accept: "*/*" },
-      })
+      .get(BASE_URL + type, getHttpOptions())
       .then((response: any) => {
         resolve(response);
       })
       .catch((error: AxiosError) => {
-        if (error.response && error.response.data) {
-          reject(error.response.data);
-        } else {
+       
           reject(error.response?.data);
-        }
+        
       });
   });
 };
 
-// Follow the pattern above to convert the rest of the functions to TypeScript, adding specific types or interfaces as necessary for parameters and return types.
